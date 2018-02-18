@@ -81,11 +81,21 @@ Game.prototype.provideHint = function() {
 $(document).ready(function() {
 	// console.log("Ready!")
 
-	$("#submit").on("click", function() {
-		console.log("Submit button was clicked!");
-	});
+	// $("#submit").on("click", function() {
+	// 	console.log("Submit button was clicked!");
+	// });
 
-})
+	var game = new Game(); // After the DOM has finished loading, create a new game instance.
+	var playersSubmission;
+	$("#submit").click(function() {
+		playersSubmission = $("#input").val(); // When a user presses the submit button, extract the value from the input, #player-input.
+		// After the player has submitted their guess, clear the input element.
+		$("#input").val("");
+		game.playersGuessSubmission(playersSubmission);
+		// console.log(game.playersGuess);
+
+	});
+});
 
 
 
