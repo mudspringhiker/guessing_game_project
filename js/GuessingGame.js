@@ -78,26 +78,27 @@ Game.prototype.provideHint = function() {
 
 // Tasks from https://learn.fullstackacademy.com/workshop/57ad9e975d2a24030046183a/content/57c472eb8d1bc503003e025d/text
 
+var getPlayersInput = function(game) {
+		game.playersGuessSubmission(parseInt($("#input").val()));
+		$("#input").val("");
+	}
+
 $(document).ready(function() {
 
 	var game = new Game(); // After the DOM has finished loading, create a new game instance.
-	var playersSubmission;
-
-	$("#submit").on("click", function() {
-
-		// When a user presses the submit button, extract the value from the input, #player-input.
-		playersSubmission = $("#input").val(); 
-
-		// After the player has submitted their guess, clear the input element.
-		$("#input").val("");
-
-		// Pass the submitted value into playersGuessSubmission, and console.log the output. 
-		// Note: The value extracted from input elements will always be a string.
-		game.playersGuessSubmission(playersSubmission);
-		// console.log(game.playersGuess); // works!
-		// console.log(typeof game.playersGuess); // string
+	
+	
+	$("#submit").click(function() {
+		getPlayersInput(game);
 
 	});
+
+	$("#input").keypress(function(event) {
+		if (event.which === 13) {
+			getPlayersInput(game);
+		}
+	});
+
 });
 
 
