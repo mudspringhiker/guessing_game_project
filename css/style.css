@@ -66,10 +66,10 @@ img {
 }
 
 body {
-    background-image: url('../IMG_7831.jpg');
+    background-image: url('../img/IMG_7831.jpg');
     background-color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-size: 100%;
+    /*background-repeat: no-repeat;*/
 }
 
 #app {
