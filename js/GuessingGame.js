@@ -76,6 +76,16 @@ Game.prototype.provideHint = function() {
 	return shuffle(this.hint);
 }
 
+// Tasks from https://learn.fullstackacademy.com/workshop/57ad9e975d2a24030046183a/content/57c472eb8d1bc503003e025d/text
+
+$(document).ready(function() {
+	// console.log("Ready!")
+
+	$("#submit").on("click", function() {
+		console.log("Submit button was clicked!");
+	});
+
+})
 
 
 
