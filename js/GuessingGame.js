@@ -94,10 +94,12 @@ var playGame = function(checkGuessResult, game) {
 		$("h2").text("Click the reset button to play again.");
 		$("#submit").prop("disabled", true);
 		$("#hint").prop("disabled", true);
-	} else if (game.isLower()) {
-		$("h2").text("Guess higher.");
 	} else {
-		$("h2").text("Guess lower.");
+		if (game.isLower()) {
+			$("h2").text("Guess higher.");
+		} else {
+			$("h2").text("Guess lower.");
+		}
 	}
 }
 
