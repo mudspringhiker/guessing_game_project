@@ -93,6 +93,7 @@ var playGame = function(checkGuessResult, game) {
 	if (checkGuessResult == "You Lose." || checkGuessResult == "You Win!") {
 		$("h2").text("Click the reset button to play again.");
 		$("#submit").prop("disabled", true);
+		$("#hint").prop("disabled", true);
 	} else if (game.isLower()) {
 		$("h2").text("Guess higher.");
 	} else {
@@ -120,6 +121,7 @@ $(document).ready(function() {
 		// console.log("Reset was clicked!")
 		game = new Game();
 		$("#submit").prop("disabled", false);
+		$("#hint").prop("disabled", false);
 		$(".guess").text("-");
 		$("h1").text("Play the Guessing Game!");
 		$("h2").text("Guess a number between 1-100.");
