@@ -94,6 +94,8 @@ var playGame = function(checkGuessResult, game) {
 		$("h2").text("Click the reset button to play again.");
 		$("#submit").prop("disabled", true);
 		$("#hint").prop("disabled", true);
+	} else if (checkGuessResult == "That is an invalid guess.") {
+		$("h2").text("Guess a number between 1-100.");
 	} else {
 		if (game.isLower()) {
 			$("h2").text("Guess higher.");
