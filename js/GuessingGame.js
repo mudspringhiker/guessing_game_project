@@ -117,13 +117,17 @@ $(document).ready(function() {
 	});
 
 	$("#reset").click(function() {
-		console.log("Reset was clicked!")
+		// console.log("Reset was clicked!")
 		game = new Game();
 		$("#submit").prop("disabled", false);
 		$(".guess").text("-");
 		$("h1").text("Play the Guessing Game!");
 		$("h2").text("Guess a number between 1-100.");
-		console.log(game);
+		// console.log(game);
+	});
+
+	$("#hint").click(function() {
+		$("h2").text("It is any of " + game.provideHint() + ".");
 	});
 
 });
