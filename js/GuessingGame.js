@@ -92,16 +92,20 @@ var playGame = function(checkGuessResult, game) {
 
 	if (checkGuessResult == "You Lose." || checkGuessResult == "You Win!") {
 		$("h2").text("Click the reset button to play again.");
+		$("#submit").prop("disabled", true);
+	} else if (game.isLower()) {
+		$("h2").text("Guess higher.");
+	} else {
+		$("h2").text("Guess lower.");
 	}
 }
 
 $(document).ready(function() {
 
-	var game = new Game(); // After the DOM has finished loading, create a new game instance.
+	var game = new Game(); 
 	
 	$("#submit").click(function() {
 		var result = getPlayersInput(game);
-		
 		playGame(result, game);
 	});
 
@@ -112,10 +116,15 @@ $(document).ready(function() {
 		}
 	});
 
-
-
-
-	
+	$("#reset").click(function() {
+		console.log("Reset was clicked!")
+		game = new Game();
+		$("#submit").prop("disabled", false);
+		$(".guess").text("-");
+		$("h1").text("Play the Guessing Game!");
+		$("h2").text("Guess a number between 1-100.");
+		console.log(game);
+	});
 
 });
 
