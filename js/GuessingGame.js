@@ -81,6 +81,20 @@ var getPlayersInput = function(game) {
 		return output;
 	}
 
+var playGame = function(checkGuessResult, game) {
+	$("h1").text(checkGuessResult);
+
+	var index = game.pastGuesses.length - 1;
+	
+	$(".guess").text(function(index) {
+		return game.pastGuesses[index];
+	});
+
+	if (checkGuessResult == "You Lose." || checkGuessResult == "You Win!") {
+		$("h2").text("Click the reset button to play again.");
+	}
+}
+
 $(document).ready(function() {
 
 	var game = new Game(); // After the DOM has finished loading, create a new game instance.
@@ -88,21 +102,13 @@ $(document).ready(function() {
 	$("#submit").click(function() {
 		var result = getPlayersInput(game);
 		
-		$("h1").text(result);
-
-		var index = game.pastGuesses.length - 1;
-		$(".guess").text(function(index) {
-				return game.pastGuesses[index];
-			});
-
-		if (result == "You Lose." || result == "You Win!") {
-			$("h2").text("Click the reset button to play again.");
-		}
+		playGame(result, game);
 	});
 
 	$("#input").keypress(function(event) {
 		if (event.which === 13) {
-			getPlayersInput(game);
+			var result = getPlayersInput(game);
+			playGame(result, game);
 		}
 	});
 
