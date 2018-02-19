@@ -95,8 +95,8 @@ $(document).ready(function() {
 				return game.pastGuesses[index];
 			});
 
-		if (result == "You Lose.") {
-			$("h2").text("Click the reset button.");
+		if (result == "You Lose." || result == "You Win!") {
+			$("h2").text("Click the reset button to play again.");
 		}
 	});
 
